@@ -169,3 +169,12 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+#dataset
+/dataset
+/myenv
+chroma_db.zip
+dataset.zip
+/chroma_db
+
+/voxblink2_samresnet34
