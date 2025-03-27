@@ -16,7 +16,6 @@ def get_audio_paths(metadata_path):
 
 
 def extract_embeddings(audio_files, device, pretrain_dir):
-    """Extract embeddings using WeSpeaker model."""
     model = wespeaker.load_model_local(pretrain_dir)
     model.set_device(device)
 
@@ -33,14 +32,12 @@ def extract_embeddings(audio_files, device, pretrain_dir):
 
 
 def assign_labels(embeddings, labels):
-    """Assign labels to embeddings."""
     for emb, label in zip(embeddings, labels):
         emb["label"] = int(label)
         emb["is_correct"] = bool(label)
 
 
 def save_to_chromadb(embeddings, db_path):
-    """Save embeddings to ChromaDB with train/test split."""
     client = chromadb.PersistentClient(path=str(db_path))
     collection = client.get_or_create_collection(name="order_embeddings")
 
