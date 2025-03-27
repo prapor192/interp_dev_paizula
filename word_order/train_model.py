@@ -164,6 +164,10 @@ def main():
     optimizer = optim.Adam(model.parameters())
 
     train(model, train_loader, optimizer, criterion, 100, device)
+
+    model_save_path = os.path.join(os.path.dirname(args.eval_path), "model.pth")
+    torch.save(model.state_dict(), model_save_path)
+
     metrics = evaluate(model, test_loader, device)
 
     save_metrics(metrics, args.eval_path)
