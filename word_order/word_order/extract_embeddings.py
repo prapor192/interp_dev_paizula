@@ -34,7 +34,7 @@ def assign_labels(embeddings, labels):
     for emb, label in zip(embeddings, labels):
         emb["label"] = int(label)
         emb["is_correct"] = bool(label)
-f
+
 
 def save_to_chromadb(embeddings, db_path):
     client = chromadb.PersistentClient(path=str(db_path))
