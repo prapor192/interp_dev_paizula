@@ -231,7 +231,7 @@ def main():
     parser.add_argument(
         "--source_path",
         type=str,
-        default="./embeddings",
+        default="./embeddingz",
         help="Path to npy file or to chromadb collection folder"
     )
     parser.add_argument(
